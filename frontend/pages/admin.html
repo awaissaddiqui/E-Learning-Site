@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <title>Admin Panel</title>
+    <script src="../scripts/admin.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <a href="../pages/addCourse.html"><button>Add Course ➕</a></button>
+        </div>
+        <div>
+            <button class="logout-button" onclick="logout(event)">Log Out</button>
+        </div>
+
+    </nav>
+    <div class="container">
+        <div class="title">
+            <h1 class="page-title">Courses Details</h1>
+        </div>
+        <table border="1" cellspacing="0" id="myTable" >
+        <tr id="mainRow">
+            <th>Course ID</th>
+            <th>Course Title</th>
+            <th>Subject Area</th>
+            <th>Pre-requisites</th>
+            <th>Tool or Softwares</th>
+            <th>External Material</th>
+            <!-- <th>No. of Registered Students</th>
+                <th>Total Reviews</th>
+                <th>Rating</th> -->
+                <th colspan="2">Description</th>
+            </tr>
+        </table>
+    </div>
+    </body>
+
+</html>

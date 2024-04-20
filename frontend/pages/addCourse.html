@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add course</title>
+    <link rel="stylesheet" href="../styles/addCourse.css">
+    <script src="../scripts/addCourse.js" ></script>
+</head>
+<body>
+    <nav>
+            <a href="./admin.html"> <button>Home</button></a>
+      
+    </nav>
+    <div class="container">
+        <form class="addCourseForm" onsubmit="addCourseToDatabase(event)" >
+            <h1>Add Course</h1>
+            <!-- Form for adding courses -->
+            <label for="title">
+                <input type="text" name="title" placeholder="Course Title" id="title" required>
+            </label>
+            <label for="courseId">
+                <input type="text" name="courseId" id="courseId" placeholder="Course ID" required>
+            </label>
+            <label for="subjectArea">
+                <input type="text" name="subjectArea" id="subjectArea" placeholder="Subject Area" required>
+            </label>
+            <label for="preRequisites">
+                <input type="text" name="preRequisites" id="preRequisites" placeholder="Pre-requisites" required>
+            </label>
+            <label for="toolsOrSoftwares">
+                <input type="text" name="toolsOrSoftwares" id="toolsOrSoftwares" placeholder="Tool or Softwares" required>
+            </label>
+      
+            <label for="externalMaterial">
+                <input type="text" name="externalMaterial" id="externalMaterial" placeholder="External Material" required>
+            </label>
+            <label for="description">
+                <input type="text" name="description" id="description" placeholder="Description" required>
+            </label>
+            <div id="paragraphContainer">
+                <label for="paragraph">
+                    <input type="text" name="paragraphInput" class="paragraphInput" id="paragraphInput" placeholder="Enter a paragraph" >
+                </label>
+            </div>
+            <!-- End of form for adding paragraphs -->
+            <button id="addParagraphBtn" onclick="addPara(event)">Add Paragraph</button>
+            
+            <button type="submit">Add Course</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="../styles/signUpStyle.css">
+     <title>Document</title>
+      <script src="../scripts/registration.js" ></script>
+      
+    </head>
+<body>
+     <div class="container">
+          <form class="signUp" onsubmit="signUp(event)">
+            <div class="logo">
+              <img src="../assets/logo.jpg" alt="logo" />
+            </div>
+            <div class="heading">
+              <h4>Academic Advising using Machine Learning</h4>
+            </div>
+            <label for="username">
+              <input type="text" autocomplete="username" placeholder="Enter your name" name="username" id="username" />
+            </label>
+            <p id="errorMessage1" style="color: red;"></p>
+           
+            <label for="email">
+               <input type="email" autocomplete="email" placeholder="Email" name="email" id="email" />
+              </label>
+              <p id="errorMessage2" style="color: red;"></p>
+           
+            <label for="password">
+                  <input type="password" placeholder="Password" name="password" id="password" />
+         </label>
+            <label for="stdNmbr">
+                  <input type="text" placeholder="Student number" name="stdNmbr" id="stdNmbr" />
+         </label>
+            <div for="department">
+                  <input type="text" placeholder="Department" name="department" id="department" />
+         </div>
+            <label for="semester">
+                  <input type="text" placeholder="Semester" name="semester" id="semester" />
+         </label>
+            <button  type="submit">Sign Up</button>
+            <div>
+              <span> Already register ? <i><a href="../index.html">Sign In</a></i> </span>
+            </div>
+          </form>
+        </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin-login.css">
+    <script  src="../scripts/admin-login.js" ></script>
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+      <div>
+        <a href="../index.html" id="adminPanel"><button>User Panal</button></a>
+      </div>
+    </nav>
+    <div class="container">
+        <form class="signIn" onsubmit="signIn(event)">
+          <div class="logo">
+            <img src="../assets/logo.jpg" alt="logo" />
+          </div>
+          <div class="heading">
+            <h4>Admin Login</h4>
+          </div>
+          <label for="email">
+            <input type="email" placeholder="Email" name="email" id="email" />
+          </label>
+          <label for="password">
+                <input type="password" placeholder="Password" name="password" id="password" />
+       </label>
+          <button  type="submit">Sign In</button>
+        </form>
+      </div>
+    
+</body>
+</html>

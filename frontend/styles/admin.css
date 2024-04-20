@@ -1,0 +1,56 @@
+/* Styles for the course container */
+:root {
+    --primayColor: rgb(20, 101, 167);
+     --secondaryColor: rgb(210, 226, 210);
+     --borderRadius: 25px;
+}
+*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primayColor);
+}
+nav a{
+    text-decoration: none;
+}
+nav  button{
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondaryColor);
+    color: var(--primayColor);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.myTable{
+       width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 2px solid black;
+    text-align: center;
+}
+table th {
+    background-color: var(--primayColor);
+    color: var(--secondaryColor);
+    padding: 10px 20px;
+}
+tr:hover{
+    background-color: greenyellow;
+}

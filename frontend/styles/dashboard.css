@@ -1,0 +1,141 @@
+:root {
+     --primayColor: rgb(20, 101, 167);
+     --secondaryColor: rgb(161, 214, 161);
+     --borderRadius: 25px;
+
+}
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+
+.containerNav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1rem 2rem;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+     .containerNav {
+          flex-direction: column;
+          font-size: small;
+          align-items: start;
+          justify-content: space-between;
+          padding-inline-start: 1rem 0.5;
+     }
+
+     .navItem {
+          margin: 0.5rem 0;
+     }
+
+}
+
+nav {
+     display: flex;
+     justify-content: end;
+     background-color: var(--primayColor);
+     padding: 8px;
+}
+
+.profile img {
+     border-radius: 10px;
+     width: 30px;
+     height: 30px;
+     margin-right: 10px;
+}
+
+a {
+     color: var(--primayColor);
+     text-decoration: none;
+     margin: 25px 0;
+}
+
+#courseContainer {
+     padding: 2rem;
+     display: flex;
+     justify-content: space-evenly;
+     flex-flow: row wrap;
+     align-content: space-evenly;
+     gap: 1rem;
+}
+
+.card {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     font-size: small;
+     font-family: Arial, sans-serif;
+     /* border: 1px solid #000; */
+     border-radius: 10px;
+     width: calc(25% - 20px);
+     box-sizing: border-box;
+     /* border-bottom: 5px solid rgba(241, 119, 74, 0.932); */
+     box-shadow: rgba(241, 119, 74, 0.932) 0px 0px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+/* Media queries for smaller screens */
+@media screen and (max-width: 1024px) {
+     .card {
+          width: calc(33.33% - 20px);
+          /* 3 cards per row for tablets */
+     }
+}
+
+@media screen and (max-width: 768px) {
+     .card {
+          width: calc(50% - 20px);
+          /* 2 cards per row for smaller screens */
+     }
+}
+
+@media screen and (max-width: 480px) {
+     .card {
+          width: calc(100% - 20px);
+          overflow: hidden;
+          font-size: clamp(1rem, calc(1vw + 1vh), 1.5rem);
+          /* Responsive font size */
+          line-height: 1.5;
+          /* 1 card per row for mobile */
+     }
+}
+
+.card img {
+     width: 100%;
+     object-fit: cover;
+     border-radius: 10px;
+     background-color: var(--primayColor);
+     padding-bottom: 1rem;
+}
+
+.card .reviews {
+     display: flex;
+     justify-content: space-evenly;
+     width: 100%;
+     padding: 0 10px;
+     font-size: small;
+}
+
+.card .heading {
+     font-weight: 500;
+}
+
+.card .button {
+     margin: 0.6rem 0;
+     padding: 0.6rem 1.5rem;
+     border-radius: 10px;
+     background-color: var(--primayColor);
+     color: white;
+}
+
+.card .button a {
+     color: white;
+     text-decoration: none;
+     font-weight: 500;
+}
