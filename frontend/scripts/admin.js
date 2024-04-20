@@ -16,6 +16,9 @@ function showData (){
       <td>${course.courseId}</td>
       <td>${course.title}</td>
       <td>${course.subjectArea}</td>
+      <td>${course.totalRegisteredUsers}</td>
+      <td>${course.totalReviews}</td>
+      <td>${parseFloat(course.averageRating).toFixed(1)}</td>
         <td>${course.preRequisites}</td>
         <td>${course.toolsOrSoftwares}</td>
         <td>${course.externalMaterial}</td>

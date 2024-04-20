@@ -7,7 +7,8 @@
       // Redirect to reading.html
        const readBtn = document.getElementById("read");
        const newparams = getUrlParams();
-        const course = {
+      
+       const course = {
           title: newparams['courseTitle'],
           id: newparams['id'],
         };
@@ -38,7 +39,7 @@ function populateCourseDetails() {
   document.getElementById('CId').textContent = decodeURIComponent(params['courseId'] || '');
   document.getElementById('subjectArea').textContent = decodeURIComponent(params['subjectArea'] || '');
   document.getElementById('preRequisites').textContent = decodeURIComponent(params['preRequisites'] || '');
-  document.getElementById('stars').textContent = decodeURIComponent(params['starRating'] || '');
+  document.getElementById('stars').innerHTML = decodeURIComponent(params['starRating'] || '');
   document.getElementById('points').textContent = decodeURIComponent(params['courseRating'] || '');
   document.getElementById('totalCount').textContent = decodeURIComponent(params['reviewCount'] || '');
   document.getElementById('externalMaterial').textContent = decodeURIComponent(params['externalMaterial'] || '');

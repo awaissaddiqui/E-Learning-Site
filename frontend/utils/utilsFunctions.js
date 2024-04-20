@@ -6,13 +6,18 @@ export function goBack() {
 }
 
 export function getStarRating(rating, maxStars) {
-    const filledStars = Math.round(rating);
-    let starRating = '';
+    const filledStars = Math.round(rating); 
+    const emptyStars = maxStars - filledStars; 
+
+    let stars = '';
     for (let i = 0; i < filledStars; i++) {
-        starRating += `<img src="../assets/starFill.png" alt="Filled Star"  class='reviewStars'>`;
+        stars += '⭐'; // Filled star character
     }
-    for (let i = 0; i < maxStars - filledStars; i++) {
-        starRating += `<img src="../assets/starEmpty.png" alt="Empty Star"  class='reviewStars'>`;
+
+    for (let i = 0; i < emptyStars; i++) {
+        stars += '<span class="empty-star">☆</span>'; // Empty star character
     }
-    return starRating;
+
+    return stars;
 }
+

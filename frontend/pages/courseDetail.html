@@ -46,7 +46,26 @@
             <p id="description"></p>
           </div>
 
-          <button id="startReadingBtn"> <a href="" id="read">Start Reading</a> </button>
+
+          <!-- <button > <a href="">Register Course Notes</a></button>
+          fetch('http://localhost:4000/api/v1/users/registerCourse',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          courseId: newparams['id'],
+          userId: isAuthenticated,
+        }),
+      }).then(response => response.json())
+        .then(data => {
+          console.log(data);
+        }).catch(error => {
+          console.log('Error:', error);
+        });
+          -->
+
+          <button id="startReadingBtn"> <a href="" id="read">Register Course</a> </button>
 
 
      </div>

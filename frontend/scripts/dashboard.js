@@ -16,14 +16,18 @@ function createCourseCard(course) {
   const reviewsDiv = document.createElement('div');
   reviewsDiv.classList.add('reviews');
   const ratingSpan = document.createElement('span');
-  ratingSpan.textContent = course.rating;
+  const parsedRating = parseFloat(course.averageRating).toFixed(1);
+  ratingSpan.textContent = parsedRating;
+  // course.averageRating ?? 0;
   const starSpan = document.createElement('span');
-  // let starRating = getStarRating(course.rating, 5);
-  let starRating = '⭐'.repeat(Math.floor(course.rating));
+  starSpan.classList.add('stars');
+   let starRating = getStarRating(course.averageRating, 5);
+  // let starRating = '⭐'.repeat(Math.floor(course.averageRating));
   
-  starSpan.textContent = starRating;
+  
+  starSpan.innerHTML = starRating;
   const reviewCountSpan = document.createElement('span');
-  reviewCountSpan.textContent = `${course.reviewCount ?? 0} reviews`;
+  reviewCountSpan.textContent = `${course.totalReviews ?? 0} reviews`;
   reviewsDiv.appendChild(ratingSpan);
   reviewsDiv.appendChild(starSpan);
   reviewsDiv.appendChild(reviewCountSpan);
@@ -37,8 +41,7 @@ function createCourseCard(course) {
   const buttonDiv = document.createElement('div');
   buttonDiv.classList.add('button');
   const viewCourseLink = document.createElement('a');
-  // console.log(course._id);
-  viewCourseLink.href = `../pages/courseDetail.html?courseId=${course.courseId}&id=${course._id}&courseTitle=${course.title}&courseRating=${course.rating}&courseReviewCount=${course.reviewCount}&courseDescription=${course.description}&starRating=${starRating}&subjectArea=${course.subjectArea}&preRequisites=${course.preRequisites}&externalMaterial=${course.externalMaterial}&reviewCount=${course.reviewCount}`;
+  viewCourseLink.href = `../pages/courseDetail.html?courseId=${course.courseId}&id=${course._id}&courseTitle=${course.title}&courseRating=${parsedRating}&courseDescription=${course.description}&starRating=${starRating}&subjectArea=${course.subjectArea}&preRequisites=${course.preRequisites}&externalMaterial=${course.externalMaterial}&reviewCount=${course.totalReviews}`;
   
 
   viewCourseLink.textContent = 'View Course';
@@ -52,13 +55,11 @@ function createCourseCard(course) {
   return cardDiv;
 }
 
-// Function to render courses
 async function renderCourses() {
   try {
     const courseContainer = document.getElementById('courseContainer');
     const response = await fetch(`${domain}/api/v1/getCourses`);
     const courses = await response.json();
-      console.log(courses);
 
     courses.data.forEach(course => {
       const courseCard = createCourseCard(course);
@@ -66,10 +67,8 @@ async function renderCourses() {
     });
   } catch (error) {
     console.error('Error fetching courses:', error);
-    // Handle error
   }
 }
 
-// Call renderCourses to display courses
 window.onload = renderCourses;
 

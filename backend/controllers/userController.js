@@ -26,12 +26,12 @@ export const login = catchAsyncError(async (req, res, next) => {
     return next(new errorHandler("Required fields cannot be empty", 400));
   const user = await User.findOne({ email }).select("+password");
   if (!user) return next(new errorHandler("Incorrect Email or  Password", 401));
-  const isMatch = await user.comparePassword(password);
-  if (!isMatch)
-    return next(new errorHandler("Incorrect Email or  Password", 401));
   if(user.role === "admin"){
     return next(new errorHandler("You are an admin", 401));
   }
+  const isMatch = await user.comparePassword(password);
+  if (!isMatch)
+    return res.status(401).send("Incorrect Email or  Password");
   sendToken(res, user, `Welcome back ${user.name}`, 200);
 });
 
@@ -67,46 +67,48 @@ export const logout = catchAsyncError(async (req, res, next) => {
     });
 });
 
-//register user
+//register user in different courses
 export const registerCourse = catchAsyncError(async (req, res, next) => {
-  const { _id, uuid } = req.body;
-  // console.log(uuid);
-  const {user} = req;
 
-  
-  let course = await Course.findOne({
-    _id,
-  });
-  if (!course)  
-  return next(new errorHandler("Course does not exist", 404));
+try {
+  const { userId, courseId } = req.body; // Assuming userId and courseId are sent in the request body
+  console.log(userId, courseId);
+  // Fetch user and course from the database
+  const user = await User.findById(userId);
+  const course = await Course.findById(courseId);
 
-  let registerUserInCourse = await User.findOne({
-    registeredCourses: {
-      $elemMatch: {
-        userId: uuid,
-      },
-    },
-  });
-
-  if (registerUserInCourse === null) {
-    return next(new errorHandler("You have already registered for this course", 400));
+  if (!user) {
+      return res.status(404).json({ error: 'User not found' });
   }
 
-  const newUser = {
-    course: course._id,
-    userId: uuid,
-  };
-  user.registeredCourses.push(newUser);
-  console.log(newUser);
+  if (!course) {
+      return res.status(404).json({ error: 'Course not found' });
+  }
+  if(user.role === "admin"){
+    return res.status(401).json({ error: 'Admin cannot register in course' });
+  }
 
-  // user.registeredCourses.push({
-  //   course: course._id,
-  //   userId: uuid,
-  // });
-  // console.log(user.registeredCourses);
-  sendToken(res, user, " course registered successfully", 201);
+  // Check if the user is already registered in the course
+  if (user.courses.includes(courseId)) {
+      return res.status(400).json({ error: 'User is already registered in the course' });
+  }
+
+  // Add the course to the user's list of registered courses
+  user.courses.push(courseId);
+  await user.save();
+
+  // Optionally, you can also add the user to the course's list of enrolled users
+  course.enrolledUsers.push(userId);
+  const totalNumberOfUsers = course.enrolledUsers.length;
+  user.totalRegisteredUsers = totalNumberOfUsers;
+  await course.save();
+
+  return res.status(200).json({ message: 'User registered in the course successfully' });
+} catch (error) {
+  console.error(error);
+  return res.status(500).json({ error: 'Internal server error' });
+}
 });
-
 //get profile
 export const profile = catchAsyncError(async (req, res, next) => {
   const {userId} = req.body;

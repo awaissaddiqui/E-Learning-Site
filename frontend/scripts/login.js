@@ -19,15 +19,13 @@ function signIn(event) {
     })
     .then((res) => res.json())
     .then((data) =>{
-        if(!data){
-          console.error("error");
-        }
+  
         const id = data.user._id;
         localStorage.setItem("id", id);
         
          window.location.href = "../pages/dashboard.html"
 
-    }).catch(error => console.error('Error fetching data:', error));
+    }).catch(error => console.log('Error fetching data:', error));
     
   }
 

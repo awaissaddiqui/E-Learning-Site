@@ -1,43 +1,48 @@
 :root {
     --primayColor: rgb(20, 101, 167);
-     --secondaryColor: rgb(161, 214, 161);
-     --borderRadius: 25px;
+    --secondaryColor: rgb(161, 214, 161);
+    --borderRadius: 25px;
 }
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f8f9fa;
     padding: 10px 20px;
 }
-nav a{
+
+nav a {
     text-decoration: none;
 }
-.readingContainer{
+
+.readingContainer {
     display: flex;
     justify-content: start;
     align-items: center;
     flex-direction: column;
     font-family: Arial, sans-serif;
     padding: 30px;
-    
-} 
-.readingContainer h2{
+
+}
+
+.readingContainer h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
-.readingContainer p{
+
+.readingContainer p {
     font-size: 1.2rem;
-  
+
 }
-nav a button{
+
+nav a button {
     border: none;
     width: 100%;
     border-radius: 20px;
@@ -49,25 +54,29 @@ nav a button{
     cursor: pointer;
 }
 
-nav a img{
+nav a img {
     width: 20px;
 }
-.readingContainer{
+
+.readingContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
 }
-.readingContainer h1{
+
+.readingContainer h1 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
-.readingContainer p{
+
+.readingContainer p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
-.readingContainer button{
+
+.readingContainer button {
     padding: 10px 20px;
     background-color: var(--secondaryColor);
     color: var(--primayColor);
@@ -75,6 +84,96 @@ nav a img{
     border-radius: 5px;
     cursor: pointer;
 }
-.readingContainer button:hover{
+
+.readingContainer button:hover {
     background-color: greenyellow;
+}
+
+/* stars design */
+/* .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating>input {
+    display: none;
+}
+
+.rating>label {
+    position: relative;
+    width: 1.1em;
+    font-size: 5vw;
+    color: #FFD700;
+    cursor: pointer;
+    border: 2px solid black;
+}
+.rating > label :hover {
+    background-color: #FFD700;
+}
+
+.rating>label::before {
+    content: “\2605”;
+    position: absolute;
+    opacity: 0;
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important;
+    background-color: aqua;
+}
+
+.rating>input:checked~label:before {
+    opacity: 1;
+    background-color: black;
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4;
+    background-color: pink;
+} */
+/* New Desgin .... */
+.star-rating {
+    font-size: 3rem;
+}
+.star-rating input[type="radio"] {
+    display: none;
+}
+.star-rating label {
+    float: right;
+    color: #aaa;
+    cursor: pointer;
+}
+.star-rating label:before {
+    color: transparent;
+}
+
+.star-rating input[type="radio"]:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffcc00;
+    
+}
+/* end here */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.star-rating .submit-button {
+    background-color: var(--secondaryColor);
+    color: var(--primayColor);
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
 }

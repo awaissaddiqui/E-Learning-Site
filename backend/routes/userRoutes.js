@@ -2,8 +2,8 @@ import express from "express";
 import { login, logout, profile, register, registerCourse } from "../controllers/userController.js";
 import { isAdmin } from "../middlewares/isAdmin.js";
 import { isAuthenticated } from "../middlewares/auth.js";
-import { create, get } from "../controllers/courseController.js";
-import { getSingleCourse } from "../controllers/courseController.js";
+import { create, get, ratingStar } from "../controllers/courseController.js";
+import { getSingleCourse  } from "../controllers/courseController.js";
 import { deleteUserAccount } from "../controllers/userController.js";
 import { adminlogin } from "../controllers/userController.js";
 
@@ -24,5 +24,6 @@ router.route("/profile").post(profile);
 router.route("/getsingleCourse/:_id").get(getSingleCourse);
 router.route("/deleteuser/:userId").delete(deleteUserAccount);
 router.route("/adminlogin").post(adminlogin);
+router.route("/course/rating").post(ratingStar);
 // router.route("registerUser/:courseId").post(registerUserInCourse);
 export default router;

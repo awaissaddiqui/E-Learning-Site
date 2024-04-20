@@ -41,6 +41,7 @@ nav  button{
 .myTable{
        width: 100%;
     border-collapse: collapse;
+    
 }
 table, th, td {
     border: 2px solid black;
@@ -53,4 +54,20 @@ table th {
 }
 tr:hover{
     background-color: greenyellow;
+}
+td {
+    padding: 5px 5px;
+}
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    table th {
+        background-color: var(--primayColor);
+        color: var(--secondaryColor);
+        padding: 10px 20px;
+    }   
 }

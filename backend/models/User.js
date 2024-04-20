@@ -35,15 +35,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  registeredCourses: [
+  courses: [
     {
-      course: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
-      },
-      userId: String,
-      courseId: String,
-    },
+       type: mongoose.Schema.Types.ObjectId, 
+       ref: 'Course' }
   ],
   createdAt: {
     type: Date,
